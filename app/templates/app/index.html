@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h1>
+    Главная страница
+</h1>
+<div class="galery">
+    {% for product in products %}
+    <div class="product-card">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}</p>
+        <img src="{{ product.image_url }}"/>
+        <p>{{ product.category }}</p>
+        <p>{{ product.brand }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% for brand in brands %}
+    <h2>{{ brand.name }} | {{ brand.country }}</h2>
+{% endfor %}
+
+{% for category in categories %}
+    <h2>{{ category.name }} | {{ category.parent_category }}</h2>
+{% endfor %}
+
+{% endblock %}
