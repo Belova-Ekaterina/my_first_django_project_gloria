@@ -8,77 +8,36 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = []
+    dependencies = [
+    ]
 
     operations = [
         migrations.CreateModel(
-            name="Brand",
+            name='Brand',
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                ("name", models.CharField(max_length=255)),
-                ("country", models.CharField(max_length=255)),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=255)),
+                ('country', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
-            name="Category",
+            name='Category',
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                ("name", models.CharField(max_length=255)),
-                (
-                    "parent_category",
-                    models.ForeignKey(
-                        blank=True,
-                        null=True,
-                        on_delete=django.db.models.deletion.CASCADE,
-                        to="app.category",
-                    ),
-                ),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=255)),
+                ('parent_category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='app.category')),
             ],
         ),
         migrations.CreateModel(
-            name="Product",
+            name='Product',
             fields=[
-                (
-                    "id",
-                    models.BigAutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                ("name", models.CharField(max_length=255)),
-                ("description", models.TextField(max_length=1000)),
-                ("price", models.DecimalField(decimal_places=2, max_digits=9)),
-                ("image_url", models.URLField(max_length=300)),
-                (
-                    "brand",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="app.brand"
-                    ),
-                ),
-                (
-                    "category",
-                    models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="app.category"
-                    ),
-                ),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=255)),
+                ('description', models.TextField(max_length=1000)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=9)),
+                ('image_url', models.URLField(max_length=300)),
+                ('brand', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.brand')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.category')),
             ],
         ),
     ]

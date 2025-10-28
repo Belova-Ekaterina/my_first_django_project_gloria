@@ -7,86 +7,70 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("app", "0001_initial"),
+        ('app', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name="brand",
-            options={"verbose_name": "Бренд", "verbose_name_plural": "Бренды"},
+            name='brand',
+            options={'verbose_name': 'Бренд', 'verbose_name_plural': 'Бренды'},
         ),
         migrations.AlterModelOptions(
-            name="category",
-            options={"verbose_name": "Категория", "verbose_name_plural": "Категории"},
+            name='category',
+            options={'verbose_name': 'Категория', 'verbose_name_plural': 'Категории'},
         ),
         migrations.AlterModelOptions(
-            name="product",
-            options={"verbose_name": "Товар", "verbose_name_plural": "Товары"},
+            name='product',
+            options={'verbose_name': 'Товар', 'verbose_name_plural': 'Товары'},
         ),
         migrations.AlterField(
-            model_name="brand",
-            name="country",
-            field=models.CharField(max_length=255, verbose_name="Страна"),
+            model_name='brand',
+            name='country',
+            field=models.CharField(max_length=255, verbose_name='Страна'),
         ),
         migrations.AlterField(
-            model_name="brand",
-            name="name",
-            field=models.CharField(max_length=255, verbose_name="Наименование"),
+            model_name='brand',
+            name='name',
+            field=models.CharField(max_length=255, verbose_name='Наименование'),
         ),
         migrations.AlterField(
-            model_name="category",
-            name="name",
-            field=models.CharField(max_length=255, verbose_name="Наименование"),
+            model_name='category',
+            name='name',
+            field=models.CharField(max_length=255, verbose_name='Наименование'),
         ),
         migrations.AlterField(
-            model_name="category",
-            name="parent_category",
-            field=models.ForeignKey(
-                blank=True,
-                null=True,
-                on_delete=django.db.models.deletion.CASCADE,
-                to="app.category",
-                verbose_name="Родительская категория",
-            ),
+            model_name='category',
+            name='parent_category',
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='app.category', verbose_name='Родительская категория'),
         ),
         migrations.AlterField(
-            model_name="product",
-            name="brand",
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE,
-                to="app.brand",
-                verbose_name="Бренд",
-            ),
+            model_name='product',
+            name='brand',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.brand', verbose_name='Бренд'),
         ),
         migrations.AlterField(
-            model_name="product",
-            name="category",
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE,
-                to="app.category",
-                verbose_name="Категория",
-            ),
+            model_name='product',
+            name='category',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.category', verbose_name='Категория'),
         ),
         migrations.AlterField(
-            model_name="product",
-            name="description",
-            field=models.TextField(max_length=1000, verbose_name="Описание"),
+            model_name='product',
+            name='description',
+            field=models.TextField(max_length=1000, verbose_name='Описание'),
         ),
         migrations.AlterField(
-            model_name="product",
-            name="image_url",
-            field=models.URLField(max_length=300, verbose_name="URL изображения"),
+            model_name='product',
+            name='image_url',
+            field=models.URLField(max_length=300, verbose_name='URL изображения'),
         ),
         migrations.AlterField(
-            model_name="product",
-            name="name",
-            field=models.CharField(max_length=255, verbose_name="Наименование"),
+            model_name='product',
+            name='name',
+            field=models.CharField(max_length=255, verbose_name='Наименование'),
         ),
         migrations.AlterField(
-            model_name="product",
-            name="price",
-            field=models.DecimalField(
-                decimal_places=2, max_digits=9, verbose_name="Цена"
-            ),
+            model_name='product',
+            name='price',
+            field=models.DecimalField(decimal_places=2, max_digits=9, verbose_name='Цена'),
         ),
     ]
