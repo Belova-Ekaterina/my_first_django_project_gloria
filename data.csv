@@ -1,0 +1,5 @@
+name,description,price,image_url,category,brand,brand_country,parent_category
+Стол,Детский стол из дерева,2500,/static/images/table.jpg,Мебель,BrandA,Россия,Детская
+Стул,Детский стул с мягким сидением,1500,/static/images/chair.jpg,Мебель,BrandB,Германия,Детская
+Кубики,Набор деревянных кубиков для детей,800,/static/images/blocks.jpg,Игрушки,BrandA,Россия,Детская
+Мягкая игрушка,Плюшевый медведь,1200,/static/images/teddy.jpg,Игрушки,BrandB,Германия,Детская

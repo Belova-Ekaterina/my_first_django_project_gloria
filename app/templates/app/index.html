@@ -1,28 +1,35 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Главная{% endblock %}
+
 {% block content %}
 <h1>
     Главная страница
 </h1>
+
+
 <div class="galery">
     {% for product in products %}
     <div class="product-card">
+        <img src="{{ product.image_url }}" alt="{{ product.name }}">
         <h2>{{ product.name }}</h2>
         <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
-        <img src="{{ product.image_url }}"/>
-        <p>{{ product.category }}</p>
-        <p>{{ product.brand }}</p>
+        <p>Цена: {{ product.price }} ₽</p>
+        <p>Категория: {{ product.category }}</p>
+        <p>Бренд: {{ product.brand }}</p>
     </div>
     {% endfor %}
 </div>
+
+
+<h2>Бренды</h2>
 {% for brand in brands %}
-    <h2>{{ brand.name }} | {{ brand.country }}</h2>
+    <p>{{ brand.name }} | {{ brand.country }}</p>
 {% endfor %}
 
+<h2>Категории</h2>
 {% for category in categories %}
-    <h2>{{ category.name }} | {{ category.parent_category }}</h2>
+    <p>{{ category.name }} | {{ category.parent_category }}</p>
 {% endfor %}
 
 {% endblock %}
